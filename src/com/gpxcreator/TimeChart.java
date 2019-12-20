@@ -1,7 +1,6 @@
 package com.gpxcreator;
 
 import com.gpxcreator.gpxpanel.Waypoint;
-import com.gpxcreator.gpxpanel.WaypointGroup;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -11,11 +10,15 @@ import org.jfree.chart.plot.XYPlot;
 import org.jfree.data.xy.XYDataset;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
-import org.openstreetmap.gui.jmapviewer.OsmMercator;
 
 import javax.swing.*;
 import java.awt.*;
+import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * A chart for displaying a GPX element's speed profile.
@@ -23,22 +26,20 @@ import java.util.ArrayList;
  * @author Matt Hoover
  */
 @SuppressWarnings("serial")
-public class DistanceChart extends JFrame {
+public class TimeChart extends JFrame {
 
-  private double maxDist;
+  private double distance = 0;
 
   /**
-   * Constructs the {@link DistanceChart} window.
+   * Constructs the {@link TimeChart} window.
    *
    * @param title         The chart window title.
    * @param headingPrefix The heading for the graphics on the chart.
    */
-  public DistanceChart(String title, String headingPrefix, ArrayList<Double> distances) {
+  public TimeChart(String title, String headingPrefix, Map<Waypoint, Waypoint> waypointMap) {
     super(title);
-    //Je let weer goed op ;)
-    maxDist = 0;
-    XYDataset xydataset = createDataset(distances);
-    JFreeChart jfreechart = createChart(xydataset, distances, headingPrefix);
+    XYDataset xydataset = createDataset(waypointMap);
+    JFreeChart jfreechart = createChart(xydataset, waypointMap, headingPrefix);
     jfreechart.setRenderingHints(
         new RenderingHints(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON));
     ChartPanel chartpanel = new ChartPanel(jfreechart);
@@ -52,11 +53,20 @@ public class DistanceChart extends JFrame {
   /**
    * Creates the dataset to be used on the chart.
    */
-  private XYDataset createDataset(ArrayList<Double> distances) {
-    XYSeries xyseries = new XYSeries("Distances");
-    for (int i = 0; i < distances.size();i++){
-        xyseries.add(i, distances.get(i));
-        maxDist = Math.max(distances.get(i), maxDist);
+  private XYDataset createDataset(Map<Waypoint, Waypoint> waypointMap) {
+    XYSeries xyseries = new XYSeries("Times");
+    Waypoint previousWaypoint = null;
+    double time = 0;
+    double previousTime = 0;
+    for(Waypoint w : waypointMap.keySet())
+    {
+      if(previousWaypoint != null) {
+        distance += GPXCreator.calculateDistance(previousWaypoint.getLat(), previousWaypoint.getLon(), w.getLat(), w.getLon());
+      }
+      time = (w.getTime().getTime() - waypointMap.get(w).getTime().getTime()) / 1000;
+      xyseries.add(distance, time);
+      previousWaypoint = w;
+      previousTime = time;
     }
     XYSeriesCollection xyseriescollection = new XYSeriesCollection();
     xyseriescollection.addSeries(xyseries);
@@ -67,10 +77,10 @@ public class DistanceChart extends JFrame {
   /**
    * Creates the chart to be used in the window frame.
    */
-  private JFreeChart createChart(XYDataset xydataset, ArrayList<Double> distances, String headingPrefix) {
+  private JFreeChart createChart(XYDataset xydataset, Map<Waypoint, Waypoint> waypointMap, String headingPrefix) {
     JFreeChart jfreechart = null;
     jfreechart = ChartFactory.createXYLineChart(
-        headingPrefix + " - " + "Distances", "Point (int)", "Distance (meter)",
+        headingPrefix + " - " + "Times", "Distance (m)", "Time difference (s)",
         xydataset, PlotOrientation.VERTICAL, false, false, false);
 
     XYPlot xyplot = (XYPlot) jfreechart.getPlot();
@@ -79,12 +89,12 @@ public class DistanceChart extends JFrame {
     xyplot.getRenderer().setSeriesStroke(0, new BasicStroke(2.0f));
 
     ValueAxis domainAxis = xyplot.getDomainAxis();
-    domainAxis.setRange(0, distances.size());
+    domainAxis.setRange(0, distance);
 
-    double padding = maxDist / 10D;
-    double rangeMax = maxDist + padding;
+    //double padding = maxDist / 10D;
+    //double rangeMax = maxDist + padding;
     ValueAxis rangeAxis = xyplot.getRangeAxis();
-    rangeAxis.setRange(0, rangeMax);
+    //rangeAxis.setRange(0, rangeMax);
 
     domainAxis.setTickMarkPaint(Color.black);
     domainAxis.setLowerMargin(0.0D);

@@ -83,7 +83,7 @@ public class GPXPanel extends JMapViewer {
 
   public void swap()
   {
-    Collections.swap(gpxFiles, 0,1);
+    Collections.swap(gpxFiles, 0, 1);
   }
 
   /**

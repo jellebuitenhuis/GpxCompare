@@ -32,9 +32,7 @@ import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.*;
@@ -74,6 +72,7 @@ public class GPXCreator extends JComponent {
         private JButton btnEleChart;
         private JButton btnSpeedChart;
         private JButton btnDistChart;
+        private JButton btnTimeChart;
         protected JComboBox<String> comboBoxTileSource;
         private JLabel lblLat;
         private JTextField textFieldLat;
@@ -123,8 +122,13 @@ public class GPXCreator extends JComponent {
 
     private int startInt1 = 0;
     private int startInt2 = 0;
+    private double startDistance = Double.MAX_VALUE;
+    private double previousDistance = Double.MAX_VALUE;
 
   private ArrayList<Double> distances = new ArrayList<>();
+  private Map<Waypoint, Waypoint> waypointMap = new TreeMap<>();
+  private List<Waypoint> waypoints2Bak = new ArrayList<>();
+
 
   /**
    * Launch the application.
@@ -1268,6 +1272,19 @@ public class GPXCreator extends JComponent {
     btnDistChart.addActionListener(e -> buildChart("Distance profile", "/com/gpxcreator/icons/elevation-chart.png"));
     toolBarMain.add(btnDistChart);
 
+    /* Time CHART BUTTON
+     * --------------------------------------------------------------------------------------------------------- */
+    btnTimeChart = new JButton("");
+    btnTimeChart.setToolTipText("View time difference");
+    btnTimeChart.setIcon(new ImageIcon(
+            GPXCreator.class.getResource("/com/gpxcreator/icons/elevation-chart.png")));
+    btnTimeChart.setEnabled(false);
+    btnTimeChart.setDisabledIcon(new ImageIcon(
+            GPXCreator.class.getResource("/com/gpxcreator/icons/elevation-chart-disabled.png")));
+    btnTimeChart.setFocusable(false);
+    btnTimeChart.addActionListener(e -> buildChart("Time profile", "/com/gpxcreator/icons/elevation-chart.png"));
+    toolBarMain.add(btnTimeChart);
+
     /* TILE SOURCE SELECTOR
      * --------------------------------------------------------------------------------------------------------- */
     toolBarMain.add(Box.createHorizontalGlue());
@@ -1945,6 +1962,7 @@ public class GPXCreator extends JComponent {
     {
       distances.clear();
       btnDistChart.setEnabled(true);
+      btnTimeChart.setEnabled(true);
 
       double track1points = mapPanel.getGPXFiles().get(0).getTracks().get(0).getTracksegs().get(0).getNumPts();
       double track2points = mapPanel.getGPXFiles().get(1).getTracks().get(0).getTracksegs().get(0).getNumPts();
@@ -1961,35 +1979,102 @@ public class GPXCreator extends JComponent {
       List<Waypoint> waypoints1 = waypointGroup1.getWaypoints();
       List<Waypoint> waypoints2 = waypointGroup2.getWaypoints();
 
-      findStart(waypoints1, waypoints2);
 
-      double totalDistance = 0;
-      int i = 0;
-      int j = 0;
-      if(startInt1 > 0) i = startInt1;
-      else if (startInt2 > 0) j = startInt2;
-      for(; i < waypoints1.size() && j < waypoints2.size();)
+      findStart(waypoints1, waypoints2);
+      List<Waypoint> waypoints1Bak = new ArrayList<>(waypointGroup1.getWaypoints());
+      waypoints1Bak.subList(0, startInt1).clear();
+      waypoints2Bak = new ArrayList<>(waypointGroup2.getWaypoints());
+      waypoints2Bak.subList(0, startInt2).clear();
+      for(int i = 0; i < waypoints1Bak.size(); i++)
       {
-        double lat1 = waypoints1.get(i).getLat();
-        double lon1 = waypoints1.get(i).getLon();
-        double lat2 = waypoints2.get(j).getLat();
-        double lon2 = waypoints2.get(j).getLon();
+        Waypoint closest = findClosest(waypoints1.get(i),waypoints2Bak);
+        if(closest != null) {
+          //waypoints2Bak.remove(closest);
+          waypointMap.put(waypoints1Bak.get(i), closest);
+          try {
+            previousDistance = calculateDistance(closest.getLat(), closest.getLon(), waypoints1Bak.get(i + 1).getLat(), waypoints1Bak.get(i + 1).getLon());
+          } catch (IndexOutOfBoundsException e) {
+            //e.printStackTrace();
+          }
+        }
+      }
+      double totalDistance = 0;
+      for(Waypoint w : waypointMap.keySet())
+      {
+        double lat1 = w.getLat();
+        double lon1 = w.getLon();
+        double lat2 = waypointMap.get(w).getLat();
+        double lon2 = waypointMap.get(w).getLon();
         double distance = calculateDistance(lat1, lon1, lat2, lon2);
         distances.add(distance);
         totalDistance += distance;
-        i++;
-        j++;
       }
+
       double file1Lat = waypointGroup1.getStart().getLat();
       double file1Lon = waypointGroup1.getStart().getLon();
       double file2Lat = waypointGroup2.getStart().getLat();
       double file2Lon = waypointGroup2.getStart().getLon();
       tableModelProperties.addRow(new Object[]{"Distance ", calculateDistance(file1Lat, file1Lon, file2Lat, file2Lon)});
       tableModelProperties.addRow(new Object[]{"Average distance ", totalDistance/waypoints1.size()});
+      WaypointGroup waypointGroup1Bak = new WaypointGroup(Color.blue,WptGrpType.WAYPOINTS);
+      WaypointGroup waypointGroup2Bak = new WaypointGroup(Color.yellow,WptGrpType.WAYPOINTS);
+      for(Waypoint w : waypointMap.keySet())
+      {
+        waypointGroup1Bak.addWaypoint(w);
+        waypointGroup2Bak.addWaypoint(waypointMap.get(w));
+      }
+      File testFile = new File("test.csv");
+      try {
+        testFile.createNewFile();
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+      try {
+        FileWriter f = new FileWriter("test.csv");
+        PrintWriter out = new PrintWriter(f);
+        out.println("File1,,,File2");
+        out.println("Lat,Lon,Time,Lat,Lon,Time");
 
+        for(Waypoint w : waypointMap.keySet())
+        {
+          out.println(w.getLat() + "," + w.getLon() + "," + w.getTime() + "," + waypointMap.get(w).getLat() + "," + waypointMap.get(w).getLon() + "," + waypointMap.get(w).getTime());
+        }
+        out.close();
+
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
     }
 
 
+  }
+  //Mooi he?
+  /**
+   * @param waypoint1 The waypoint you want to find the closest point to
+   * @param waypoints2 The list of waypoints to compare against waypoint1
+   * @return The closest found waypoint from waypoints2
+   */
+  public Waypoint findClosest(Waypoint waypoint1, List<Waypoint> waypoints2)
+  {
+    double lat1 = waypoint1.getLat();
+    double lon1 = waypoint1.getLon();
+    Waypoint closest = null;
+    double closestDistance = Double.MAX_VALUE;
+    int closestI = 0;
+    for(int i = 0; i < waypoints2.size(); i++)
+    {
+      double lat2 = waypoints2.get(i).getLat();
+      double lon2 = waypoints2.get(i).getLon();
+      double distance = calculateDistance(lat1, lon1, lat2, lon2);
+      if(distance < closestDistance)
+      {
+        closestI = i;
+        closest = waypoints2.get(i);
+        closestDistance = distance;
+      }
+    }
+    waypoints2Bak.subList(0, closestI).clear();
+    return closest;
   }
 
   public void findStart(List<Waypoint> waypoints1, List<Waypoint> waypoints2)
@@ -1998,8 +2083,7 @@ public class GPXCreator extends JComponent {
     double file1Lon = waypoints1.get(0).getLon();
     double file2Lat = waypoints2.get(0).getLat();
     double file2Lon = waypoints2.get(0).getLon();
-    double startDistance = calculateDistance(file1Lat, file1Lon, file2Lat, file2Lon);
-    System.out.println(startDistance);
+    startDistance = calculateDistance(file1Lat, file1Lon, file2Lat, file2Lon);
 
     for(int i = 0; i < waypoints1.size(); i++)
     {
@@ -2016,7 +2100,6 @@ public class GPXCreator extends JComponent {
       for (int i = 0; i < waypoints2.size(); i++) {
         double lat2 = waypoints2.get(i).getLat();
         double lon2 = waypoints2.get(i).getLon();
-        System.out.println(calculateDistance(lat2, lon2, file1Lat, file1Lon));
         if (startDistance > calculateDistance(lat2, lon2, file1Lat, file1Lon) && i < 0.5*waypoints2.size()) {
           startInt2 = i;
           startDistance = calculateDistance(lat2, lon2, file1Lat, file1Lon);
@@ -2025,7 +2108,7 @@ public class GPXCreator extends JComponent {
     }
   }
 
-  public double calculateDistance(double lat1, double lon1, double lat2, double lon2)
+  public static double calculateDistance(double lat1, double lon1, double lat2, double lon2)
   {
     double earthRadius = 6371000; //meters
     double dLat = Math.toRadians(lat2-lat1);
@@ -2264,6 +2347,8 @@ public class GPXCreator extends JComponent {
           f = new SpeedChart(chartName, gpxFile.getName(), activeWptGrp);
         } else if (chartName.equals("Distance profile")) {
           f = new DistanceChart(chartName, gpxFile.getName(), distances);
+        } else if (chartName.equals("Time profile")) {
+          f = new TimeChart(chartName, gpxFile.getName(), waypointMap);
         }
         else {
           return; // invalid chart name given

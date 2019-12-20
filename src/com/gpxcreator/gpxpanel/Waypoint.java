@@ -7,7 +7,7 @@ import java.util.Date;
  *
  * @author Matt Hoover
  */
-public class Waypoint {
+public class Waypoint implements Comparable<Waypoint>{
 
   private double lat;
   private double lon;
@@ -33,7 +33,7 @@ public class Waypoint {
   }
 
   @Override
-  public String toString() {
+  public String  toString() {
     return "Waypoint{" +
             "lat=" + lat +
             ", lon=" + lon +
@@ -102,5 +102,18 @@ public class Waypoint {
 
   public void setType(String type) {
     this.type = type;
+  }
+
+  @Override
+  public int compareTo(Waypoint o) {
+    if(time.before(o.getTime()))
+    {
+      return -1;
+    }
+    else if(time.after(o.getTime()))
+    {
+      return 1;
+    }
+    return 0;
   }
 }

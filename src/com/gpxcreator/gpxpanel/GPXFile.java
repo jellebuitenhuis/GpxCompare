@@ -228,6 +228,11 @@ public class GPXFile extends GPXObject {
     updateAllProperties();
   }
 
+  public void addWaypointGroup(WaypointGroup waypointGroup)
+  {
+    this.waypointGroup = waypointGroup;
+  }
+
   /**
    * Saves the file to disk in GPX format.
    *
