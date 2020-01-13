@@ -32,6 +32,17 @@ public class Waypoint implements Comparable<Waypoint>{
     this.type = "";
   }
 
+  public Waypoint(Waypoint wp) {
+    this.lat = wp.getLat();
+    this.lon = wp.getLon();
+    this.ele = wp.getEle();
+    this.time = wp.getTime();
+    this.name = wp.getName();
+    this.desc = wp.getDesc();
+    this.type = wp.getType();
+  }
+
+
   @Override
   public String  toString() {
     return "Waypoint{" +
@@ -102,6 +113,17 @@ public class Waypoint implements Comparable<Waypoint>{
 
   public void setType(String type) {
     this.type = type;
+  }
+
+  public void moveWaypoint(double distance, double angle)
+  {
+    double coef = Math.cos(Math.toRadians(this.lat));
+    double verticalDistDiff = Math.sin(Math.toRadians(90 - angle)) / (2*Math.PI*6378.137 * 1000) / 360;
+    double horizontalDistDiff = Math.cos(Math.toRadians(90 - angle)) / (2*Math.PI*6378.137 * 1000) / 360;
+    double latDiff = distance * verticalDistDiff;
+    double lonDiff = distance * horizontalDistDiff / coef;
+    this.lat += latDiff;
+    this.lon += lonDiff;
   }
 
   @Override

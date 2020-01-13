@@ -592,6 +592,11 @@ public class GPXFile extends GPXObject {
     return tracks;
   }
 
+  public void addTrack(Track track){
+    tracks.clear();
+    tracks.add(track);
+  }
+
   /* (non-Javadoc)
    * @see com.gpxcreator.gpxpanel.GPXObject#updateAllProperties()
    */

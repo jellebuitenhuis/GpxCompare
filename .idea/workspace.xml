@@ -2,18 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a077b31b-dd8e-4c14-910d-f42011113323" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/gpxcreator/TimeChart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/gpxcreator/DistanceChart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/gpxcreator/DistanceChart.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/gpxcreator/GPXCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/gpxcreator/GPXCreator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/gpxcreator/gpxpanel/GPXFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/gpxcreator/gpxpanel/GPXFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/gpxcreator/gpxpanel/GPXPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/gpxcreator/gpxpanel/GPXPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/gpxcreator/gpxpanel/Waypoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/gpxcreator/gpxpanel/Waypoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/test.csv" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/classes/" />
-    <ignored path="$PROJECT_DIR$/bin/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,167 +21,17 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/gpxcreator/GPXCreator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="2050" column="12" selection-start-line="2050" selection-start-column="12" selection-end-line="2050" selection-end-column="12" />
-              <folding>
-                <element signature="e#90723#90724#0" expanded="true" />
-                <element signature="e#90768#90769#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/gpxcreator/gpxpanel/GPXPanel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1207">
-              <caret line="85" column="34" selection-start-line="85" selection-start-column="34" selection-end-line="85" selection-end-column="34" />
-              <folding>
-                <element signature="e#2605#2606#0" expanded="true" />
-                <element signature="e#2647#2648#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/gpxcreator/gpxpanel/GPXFile.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3604">
-              <caret line="230" column="30" selection-start-line="230" selection-start-column="30" selection-end-line="230" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/gpxcreator/DistanceChart.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="37" column="6" selection-start-line="37" selection-start-column="6" selection-end-line="37" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/gpxcreator/TimeChart.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="799">
-              <caret line="65" column="77" selection-start-line="65" selection-start-column="77" selection-end-line="65" selection-end-column="77" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/gpxcreator/gpxpanel/Waypoint.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1496">
-              <caret line="114" column="14" selection-start-line="114" selection-start-column="14" selection-end-line="114" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>gpxfile</find>
-      <find>files</find>
-      <find>gpx</find>
-      <find>waypointg</find>
-      <find>filenew</find>
-      <find>addr</find>
-      <find>addroute</find>
-      <find>addpoin</find>
-      <find>addpoi</find>
-      <find>(waypointgroup) act</find>
-      <find>activeGPXObject</find>
-      <find>wayp</find>
-      <find>addpoint</find>
-      <find>route.getp</find>
-      <find>if (activeGPXObject.isGPXFileWithOneRoute()) {</find>
-      <find>activeGPXObject.isGPXFileWithOneRoute()</find>
-      <find>waypointgroup</find>
-      <find>filesave(</find>
-      <find>saveToGPXFile</find>
-      <find>filesave</find>
-      <find>filesave =</find>
-      <find>new file</find>
-      <find>.remove</find>
-      <find>timech</find>
-      <find>waypointMap</find>
-      <find>size</find>
-      <find>calcul</find>
-      <find>syst</find>
-      <find>previous</find>
-      <find>bak</find>
-    </findStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/src/com/gpxcreator/gpxpanel/GPXPanel.java" />
-        <option value="$PROJECT_DIR$/src/com/gpxcreator/gpxpanel/Waypoint.java" />
-        <option value="$PROJECT_DIR$/src/com/gpxcreator/gpxpanel/GPXFile.java" />
-        <option value="$PROJECT_DIR$/src/com/gpxcreator/DistanceChart.java" />
-        <option value="$PROJECT_DIR$/src/com/gpxcreator/TimeChart.java" />
-        <option value="$PROJECT_DIR$/src/com/gpxcreator/GPXCreator.java" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-393" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
-  </component>
+  <component name="ProjectId" id="1WKuPDcP7tHjIj3FQ0Wrico1XO4" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="GPXCreator-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GPXCreator-master" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GPXCreator-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GPXCreator-master" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GPXCreator-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GPXCreator-master" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="gpxcreator" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GPXCreator-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GPXCreator-master" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="gpxcreator" type="462c0819:PsiDirectoryNode" />
-              <item name="gpxpanel" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-    </panes>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="Downloaded.Files.Path.Enabled" value="false" />
@@ -208,18 +52,6 @@
       <recent name="com.gpxcreator" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
   <component name="RunManager">
     <configuration name="GPXCreator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.gpxcreator.GPXCreator" />
@@ -239,6 +71,18 @@
         <item itemvalue="Application.GPXCreator" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -266,268 +110,64 @@
       <workItem from="1576772014418" duration="1364000" />
       <workItem from="1576833917217" duration="1677000" />
       <workItem from="1576836009026" duration="602000" />
+      <workItem from="1577009256566" duration="48000" />
+      <workItem from="1577967548046" duration="1184000" />
+      <workItem from="1578910434692" duration="55000" />
+      <workItem from="1578910591038" duration="58000" />
+      <workItem from="1578910661653" duration="890000" />
+      <workItem from="1578912059866" duration="1857000" />
+      <workItem from="1578913932348" duration="6677000" />
     </task>
     <servers />
-  </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45941000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.29317698" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.34561214" />
-      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
-      <window_info anchor="bottom" id="Debug" order="5" weight="0.3997833" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32936078" />
-      <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32936078" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.32936078" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Database" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Maven" order="6" />
-      <window_info anchor="right" id="Capture Analysis" order="7" />
-      <window_info anchor="right" id="Palette&#9;" order="8" />
-    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/gpxcreator/icons/add-points.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/gpxcreator/icons/file-new.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/gpxcreator/icons/file-new-disabled.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/gpxcreator/icons/tree-visible.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/gpxcreator/icons/tree-wpt-hide.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/gpxcreator/icons/tree-invisible.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/gpxcreator/tree/GPXTreeComponentFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="31" column="26" lean-forward="true" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/gpxcreator/tree/GPXTreeRenderer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="18" column="17" lean-forward="true" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="24" />
-          <folding>
-            <element signature="e#366#367#0" expanded="true" />
-            <element signature="e#415#416#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/javax/swing/SwingWorker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4267">
-          <caret line="289" column="11" selection-start-line="289" selection-start-column="11" selection-end-line="289" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/externals/JMapViewer_2.10.jar!/org/openstreetmap/gui/jmapviewer/JMapViewer.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="332" column="76" selection-start-line="332" selection-start-column="64" selection-end-line="332" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/gpxcreator/ElevationChart.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="96" column="40" selection-start-line="96" selection-start-column="27" selection-end-line="96" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/gpxcreator/icons/speed-chart.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/jshell/jshell_console.snippet">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/gpxcreator/SpeedChart.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="40" column="33" lean-forward="true" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/externals/jfreechart-1.0.14.jar!/org/jfree/chart/JFreeChart.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="69" column="13" selection-start-line="69" selection-start-column="13" selection-end-line="69" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/gpxcreator/gpxpanel/WaypointGroup.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="66" column="30" selection-start-line="66" selection-start-column="21" selection-end-line="66" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/gpxcreator/gpxpanel/GPXObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="286" column="23" selection-start-line="286" selection-start-column="14" selection-end-line="286" selection-end-column="23" />
-          <folding>
-            <element signature="e#4226#4227#0" expanded="true" />
-            <element signature="e#4254#4255#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://JAVA/com.gpxcreator">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement>com.gpxcreator</OriginalElement>
-          <nodes>
-            <node x="1158.0" y="2318.0">com.gpxcreator.icons</node>
-            <node x="1156.0" y="121.0">com.gpxcreator.PathFinderMapQuest</node>
-            <node x="714.0" y="121.0">com.gpxcreator.PathFinderYOURS</node>
-            <node x="396.0" y="0.0">com.gpxcreator.EditPropsDialog</node>
-            <node x="798.0" y="2318.0">com.gpxcreator.gpxpanel</node>
-            <node x="399.0" y="2318.0">com.gpxcreator.ElevationChart</node>
-            <node x="985.0" y="2318.0">com.gpxcreator.schema</node>
-            <node x="0.0" y="0.0">com.gpxcreator.GPXCreator</node>
-            <node x="2086.0" y="0.0">com.gpxcreator.DistanceChart</node>
-            <node x="0.0" y="2318.0">com.gpxcreator.SpeedChart</node>
-            <node x="935.0" y="0.0">com.gpxcreator.PathFinder</node>
-            <node x="1324.0" y="2318.0">com.gpxcreator.tree</node>
-            <node x="1623.0" y="0.0">com.gpxcreator.TimeChart</node>
-          </nodes>
-          <notes />
-          <edges>
-            <edge source="com.gpxcreator.PathFinderYOURS" target="com.gpxcreator.PathFinder">
-              <point x="0.0" y="-35.5" />
-              <point x="925.0" y="96.0" />
-              <point x="1040.5" y="96.0" />
-              <point x="-105.5" y="35.5" />
-            </edge>
-            <edge source="com.gpxcreator.PathFinderMapQuest" target="com.gpxcreator.PathFinder">
-              <point x="0.0" y="-35.5" />
-              <point x="1367.0" y="96.0" />
-              <point x="1251.5" y="96.0" />
-              <point x="105.5" y="35.5" />
-            </edge>
-          </edges>
-          <settings layout="Hierarchic Group" zoom="0.9" x="24.0" y="1859.0" />
-          <SelectedNodes>
-            <node>com.gpxcreator.gpxpanel</node>
-          </SelectedNodes>
-          <Categories>
-            <Category>Fields</Category>
-            <Category>Constructors</Category>
-            <Category>Methods</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://JAVA/com.gpxcreator.gpxpanel">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement>com.gpxcreator.gpxpanel</OriginalElement>
-          <nodes>
-            <node x="" y="">com.gpxcreator.gpxpanel.Track</node>
-            <node x="" y="">com.gpxcreator.gpxpanel.Route</node>
-            <node x="" y="">com.gpxcreator.gpxpanel.GPXPanel</node>
-            <node x="" y="">com.gpxcreator.gpxpanel.GPXObject</node>
-            <node x="" y="">com.gpxcreator.gpxpanel.GPXFile</node>
-            <node x="" y="">com.gpxcreator.gpxpanel.WaypointGroup</node>
-            <node x="" y="">com.gpxcreator.gpxpanel.Waypoint</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.2000000000000002" x="186.0" y="80.0" />
-          <SelectedNodes />
-          <Categories />
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/gpxcreator/GPXCreator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="2050" column="12" selection-start-line="2050" selection-start-column="12" selection-end-line="2050" selection-end-column="12" />
-          <folding>
-            <element signature="e#90768#90769#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/gpxcreator/gpxpanel/GPXPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1207">
-          <caret line="85" column="34" selection-start-line="85" selection-start-column="34" selection-end-line="85" selection-end-column="34" />
-          <folding>
-            <element signature="e#2605#2606#0" expanded="true" />
-            <element signature="e#2647#2648#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/gpxcreator/gpxpanel/GPXFile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3604">
-          <caret line="230" column="30" selection-start-line="230" selection-start-column="30" selection-end-line="230" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/gpxcreator/DistanceChart.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="37" column="6" selection-start-line="37" selection-start-column="6" selection-end-line="37" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/gpxcreator/TimeChart.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="65" column="77" selection-start-line="65" selection-start-column="77" selection-end-line="65" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/gpxcreator/gpxpanel/Waypoint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1496">
-          <caret line="114" column="14" selection-start-line="114" selection-start-column="14" selection-end-line="114" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
+  <component name="WindowStateProjectService">
+    <state x="552" y="179" key="#Plugins" timestamp="1578910648822">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="179" key="#Plugins/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1578910648822" />
+    <state x="765" y="237" key="#com.intellij.ide.util.MemberChooser" timestamp="1578913279142">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="765" y="237" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1578913279142" />
+    <state x="585" y="115" key="CommitChangelistDialog2" timestamp="1578918342034">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="585" y="115" key="CommitChangelistDialog2/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1578918342034" />
+    <state width="1877" height="296" key="GridCell.Tab.0.bottom" timestamp="1578920393554">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="296" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1578920393554" />
+    <state width="1877" height="296" key="GridCell.Tab.0.center" timestamp="1578920393553">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="296" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1578920393553" />
+    <state width="1877" height="296" key="GridCell.Tab.0.left" timestamp="1578920393553">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="296" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1578920393553" />
+    <state width="1877" height="296" key="GridCell.Tab.0.right" timestamp="1578920393554">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="296" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1578920393554" />
+    <state width="1877" height="347" key="GridCell.Tab.1.bottom" timestamp="1578917324647">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="347" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1578917324647" />
+    <state width="1877" height="347" key="GridCell.Tab.1.center" timestamp="1578917324647">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="347" key="GridCell.Tab.1.center/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1578917324647" />
+    <state width="1877" height="347" key="GridCell.Tab.1.left" timestamp="1578917324647">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="347" key="GridCell.Tab.1.left/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1578917324647" />
+    <state width="1877" height="347" key="GridCell.Tab.1.right" timestamp="1578917324647">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="347" key="GridCell.Tab.1.right/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1578917324647" />
   </component>
   <component name="masterDetails">
     <states>

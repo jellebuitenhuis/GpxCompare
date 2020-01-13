@@ -34,6 +34,7 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.*;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.*;
 
@@ -128,6 +129,7 @@ public class GPXCreator extends JComponent {
   private ArrayList<Double> distances = new ArrayList<>();
   private Map<Waypoint, Waypoint> waypointMap = new TreeMap<>();
   private List<Waypoint> waypoints2Bak = new ArrayList<>();
+  private boolean running = false;
 
 
   /**
@@ -2023,32 +2025,117 @@ public class GPXCreator extends JComponent {
         waypointGroup1Bak.addWaypoint(w);
         waypointGroup2Bak.addWaypoint(waypointMap.get(w));
       }
-      File testFile = new File("test.csv");
-      try {
-        testFile.createNewFile();
-      } catch (IOException e) {
-        e.printStackTrace();
-      }
-      try {
-        FileWriter f = new FileWriter("test.csv");
-        PrintWriter out = new PrintWriter(f);
-        out.println("File1,,,File2");
-        out.println("Lat,Lon,Time,Lat,Lon,Time");
+//      File testFile = new File("test.csv");
+//      try {
+//        testFile.createNewFile();
+//      } catch (IOException e) {
+//        e.printStackTrace();
+//      }
+//      try {
+//        FileWriter f = new FileWriter("test.csv");
+//        PrintWriter out = new PrintWriter(f);
+//        out.println("File1,,,File2");
+//        out.println("Lat,Lon,Time,Lat,Lon,Time");
+//
+//        for(Waypoint w : waypointMap.keySet())
+//        {
+//          out.println(w.getLat() + "," + w.getLon() + "," + w.getTime() + "," + waypointMap.get(w).getLat() + "," + waypointMap.get(w).getLon() + "," + waypointMap.get(w).getTime());
+//        }
+//        out.close();
+//
+//      } catch (IOException e) {
+//        e.printStackTrace();
+//      }
 
-        for(Waypoint w : waypointMap.keySet())
+      if(!running) {
+        running = true;
+        List<Waypoint> disPoints = equalizeWaypoints(waypoints1);
+        Track track = new Track(Color.BLACK);
+        track.addTrackseg();
+        for(Waypoint w : disPoints)
         {
-          out.println(w.getLat() + "," + w.getLon() + "," + w.getTime() + "," + waypointMap.get(w).getLat() + "," + waypointMap.get(w).getLon() + "," + waypointMap.get(w).getTime());
+          track.getTracksegs().get(0).addWaypoint(w);
         }
-        out.close();
+        file1.addTrack(track);
+        track.updateAllProperties();
 
-      } catch (IOException e) {
-        e.printStackTrace();
+        disPoints = equalizeWaypoints(waypoints2);
+        track = new Track(Color.BLACK);
+        track.addTrackseg();
+        for(Waypoint w : disPoints)
+        {
+          track.getTracksegs().get(0).addWaypoint(w);
+        }
+        file2.addTrack(track);
+        track.updateAllProperties();
+        System.out.println(file1.getTracks().get(0).getTracksegs().get(0).getWaypoints().size());
+        System.out.println(file2.getTracks().get(0).getTracksegs().get(0).getWaypoints().size());
       }
     }
 
 
   }
-  //Mooi he?
+
+  public List<Waypoint> equalizeWaypoints(List<Waypoint> waypoints1)
+  {
+    List<Waypoint> disPoints = new ArrayList<>();
+    double d = 0;
+    int i = 0;
+    Waypoint p1;
+    Waypoint p2;
+    double distance = 1;
+
+    while (i < waypoints1.size()) {
+      if (i == 0) {
+        disPoints.add(waypoints1.get(i));
+        i++;
+        continue;
+      }
+      if (d == 0) {
+        p1 = disPoints.get(disPoints.size() - 1);
+      } else {
+        p1 = waypoints1.get(i - 1);
+      }
+      p2 = waypoints1.get(i);
+      double coef = Math.cos(Math.toRadians(p1.getLat()));
+      double x = p1.getLat() - p2.getLat();
+      double y = (p1.getLon() - p2.getLon()) * coef;
+      d += Math.sqrt(x*x+y*y)*(2*Math.PI*6378.137 * 1000)/360;
+
+      if (d >= distance) {
+        double bearing = calculateBearing(p1, p2);
+        double moves = Math.floor(d/distance);
+        long p1Time = p1.getTime().getTime();
+        long p2Time = p2.getTime().getTime();
+        long timeDiff = p2Time - p1Time;
+        double timeStep = timeDiff/moves;
+        for(int j = 0; j < moves; j++)
+        {
+          Waypoint p2_copy = new Waypoint(p2);
+          p2_copy.moveWaypoint(d,bearing);
+          Date date = new Date();
+          date.setTime((long) (p1Time + (timeStep*j)));
+          p2_copy.setTime(date);
+          disPoints.add(p2_copy);
+        }
+        d = 0;
+      } else {
+        i++;
+      }
+    }
+    return disPoints;
+  }
+
+  public double calculateBearing(Waypoint p1, Waypoint p2)
+  {
+    double lat1R = Math.toRadians(p1.getLat());
+    double lat2R = Math.toRadians(p2.getLat());
+    double dlon = Math.toRadians(p2.getLon() - p1.getLon());
+    double y = Math.sin(dlon) * Math.cos(lat2R);
+    double x = Math.cos(lat1R) * Math.sin(lat2R) - Math.sin(lat1R) * Math.cos(lat2R) * Math.cos(dlon);
+    return Math.toDegrees(Math.atan2(y,x));
+  }
+
   /**
    * @param waypoint1 The waypoint you want to find the closest point to
    * @param waypoints2 The list of waypoints to compare against waypoint1
