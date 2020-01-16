@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a077b31b-dd8e-4c14-910d-f42011113323" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/gpxcreator/GPXCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/gpxcreator/GPXCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/gpxcreator/gpxpanel/GPXFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/gpxcreator/gpxpanel/GPXFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/gpxcreator/gpxpanel/Waypoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/gpxcreator/gpxpanel/Waypoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/test.csv" afterDir="false" />
-    </list>
+    <list default="true" id="44ef9a51-d552-422d-b4a1-cec7bcc330d9" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,54 +15,69 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
-  <component name="ProjectId" id="1WKuPDcP7tHjIj3FQ0Wrico1XO4" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
   </component>
+  <component name="ProjectId" id="1WQbefbnEbsEizL8v8adPiiYP6o" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="Downloaded.Files.Path.Enabled" value="false" />
-    <property name="Repository.Attach.Annotations" value="false" />
-    <property name="Repository.Attach.JavaDocs" value="false" />
-    <property name="Repository.Attach.Sources" value="false" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../website" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/jfreechart-1.0.19" />
+    <property name="nodejs.jest.jest_package" value="" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="project.propCompiler" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.gpxcreator" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Jelle\Projects\GPSCompare\src\main\java\nl\jellebuitenhuis\gpxcompare" />
+      <recent name="C:\Users\Jelle\Projects\GPSCompare" />
+      <recent name="C:\Users\Jelle\Projects\GPSCompare\src" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Jelle\Projects\GPSCompare\src\main\java\nl\jellebuitenhuis\gpxcompare\icons" />
+      <recent name="C:\Users\Jelle\Projects\GPSCompare\src\main\java\nl\jellebuitenhuis\gpxcompare\charts" />
+      <recent name="C:\Users\Jelle\Projects\GPSCompare\src\main\java\nl\jellebuitenhuis\gpxcompare" />
+      <recent name="C:\Users\Jelle\Projects\GPSCompare" />
+      <recent name="C:\Users\Jelle\Projects\GPSCompare\src\main\java\icons" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="GPXCreator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.gpxcreator.GPXCreator" />
-      <module name="GPXCreator" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.gpxcreator.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="nl.jellebuitenhuis.gpxcompare.Main" />
+      <module name="GPSCompare" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Main" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.GPXCreator" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -89,34 +98,18 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a077b31b-dd8e-4c14-910d-f42011113323" name="Default Changelist" comment="" />
-      <created>1575399376144</created>
+      <changelist id="44ef9a51-d552-422d-b4a1-cec7bcc330d9" name="Default Changelist" comment="" />
+      <created>1575396873028</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1575399376144</updated>
-      <workItem from="1575399377294" duration="8942000" />
-      <workItem from="1575410020075" duration="290000" />
-      <workItem from="1575410549045" duration="383000" />
-      <workItem from="1575447704189" duration="626000" />
-      <workItem from="1575452114283" duration="685000" />
-      <workItem from="1575553228445" duration="7797000" />
-      <workItem from="1575564255679" duration="47000" />
-      <workItem from="1575641914921" duration="93000" />
-      <workItem from="1576244196911" duration="1722000" />
-      <workItem from="1576605682312" duration="9764000" />
-      <workItem from="1576747144958" duration="6927000" />
-      <workItem from="1576756922021" duration="3693000" />
-      <workItem from="1576766627450" duration="1329000" />
-      <workItem from="1576772014418" duration="1364000" />
-      <workItem from="1576833917217" duration="1677000" />
-      <workItem from="1576836009026" duration="602000" />
-      <workItem from="1577009256566" duration="48000" />
-      <workItem from="1577967548046" duration="1184000" />
-      <workItem from="1578910434692" duration="55000" />
-      <workItem from="1578910591038" duration="58000" />
-      <workItem from="1578910661653" duration="890000" />
-      <workItem from="1578912059866" duration="1857000" />
-      <workItem from="1578913932348" duration="6677000" />
+      <updated>1575396873028</updated>
+      <workItem from="1575396875576" duration="4562000" />
+      <workItem from="1575402808201" duration="11000" />
+      <workItem from="1576605670133" duration="10000" />
+      <workItem from="1579084864020" duration="28000" />
+      <workItem from="1579085022104" duration="7000" />
+      <workItem from="1579085844134" duration="31335000" />
+      <workItem from="1579170654906" duration="30328000" />
     </task>
     <servers />
   </component>
@@ -124,121 +117,81 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="552" y="179" key="#Plugins" timestamp="1578910648822">
+    <state x="765" y="230" key="#com.intellij.ide.util.MemberChooser" timestamp="1579210832725">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="179" key="#Plugins/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1578910648822" />
-    <state x="765" y="237" key="#com.intellij.ide.util.MemberChooser" timestamp="1578913279142">
+    <state x="765" y="230" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579210832725" />
+    <state x="662" y="446" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1579092099619">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="237" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1578913279142" />
-    <state x="585" y="115" key="CommitChangelistDialog2" timestamp="1578918342034">
+    <state x="662" y="446" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579092099619" />
+    <state x="740" y="276" key="FileChooserDialogImpl" timestamp="1579206767527">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="115" key="CommitChangelistDialog2/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1578918342034" />
-    <state width="1877" height="296" key="GridCell.Tab.0.bottom" timestamp="1578920393554">
+    <state x="740" y="276" key="FileChooserDialogImpl/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579206767527" />
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1579211313824">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="296" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1578920393554" />
-    <state width="1877" height="296" key="GridCell.Tab.0.center" timestamp="1578920393553">
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579211313824" />
+    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1579211313824">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="296" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1578920393553" />
-    <state width="1877" height="296" key="GridCell.Tab.0.left" timestamp="1578920393553">
+    <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579211313824" />
+    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1579211313824">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="296" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1578920393553" />
-    <state width="1877" height="296" key="GridCell.Tab.0.right" timestamp="1578920393554">
+    <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579211313824" />
+    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1579211313824">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="296" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1578920393554" />
-    <state width="1877" height="347" key="GridCell.Tab.1.bottom" timestamp="1578917324647">
+    <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579211313824" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1579127648274">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="347" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1578917324647" />
-    <state width="1877" height="347" key="GridCell.Tab.1.center" timestamp="1578917324647">
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579127648274" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1579127648274">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="347" key="GridCell.Tab.1.center/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1578917324647" />
-    <state width="1877" height="347" key="GridCell.Tab.1.left" timestamp="1578917324647">
+    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579127648274" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1579127648274">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="347" key="GridCell.Tab.1.left/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1578917324647" />
-    <state width="1877" height="347" key="GridCell.Tab.1.right" timestamp="1578917324647">
+    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579127648274" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1579127648274">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="347" key="GridCell.Tab.1.right/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1578917324647" />
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>org.jxmapviewer:jxmapviewer2:2.4</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
+    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579127648274" />
+    <state x="490" y="176" key="Maven.ArtifactSearchDialog" timestamp="1579095220558">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="490" y="176" key="Maven.ArtifactSearchDialog/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579095220558" />
+    <state x="461" y="163" key="SettingsEditor" timestamp="1579176526048">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="163" key="SettingsEditor/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579176526048" />
+    <state x="690" y="287" key="extract.method.dialog" timestamp="1579121550830">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="287" key="extract.method.dialog/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579121550830" />
+    <state x="342" y="141" key="new project wizard" timestamp="1579111868661">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="342" y="141" key="new project wizard/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579111868661" />
+    <state x="601" y="246" width="700" height="530" key="recent.locations.popup" timestamp="1579181874143">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="601" y="246" width="700" height="530" key="recent.locations.popup/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579181874143" />
+    <state x="666" y="149" key="refactoring.ChangeSignatureDialog" timestamp="1579127629169">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="666" y="149" key="refactoring.ChangeSignatureDialog/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579127629169" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1579203645518">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579203645518" />
+    <state x="623" y="225" width="672" height="160" key="search.everywhere.popup" timestamp="1579122332779">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="160" key="search.everywhere.popup/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579122332779" />
   </component>
 </project>
