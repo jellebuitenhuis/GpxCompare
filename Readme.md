@@ -10,7 +10,7 @@ For this project 3 different projects have been used:
 JPX has been modified very slightly, I added the option to set the name of a GPX object. This so that I can show the user which files they have added.
 
 ## Installation
-Not much to install, there is a zip with a jar file. If you want to run this application, unpack the zip and run 'run.bat'. The [zip-file can be found here](GPSCompare.rar)
+Not much to install, there is a zip with a jar file. If you want to run this application, unpack the zip and run 'run.bat'. [The zip-file can be found here](GPSCompare.rar)
 
 ## ToDo
 * Recalculate the GPX tracks upon editing equalization/gap penalty instead of deleting them
