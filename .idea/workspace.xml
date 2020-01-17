@@ -1,7 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="GPSCompare:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="44ef9a51-d552-422d-b4a1-cec7bcc330d9" name="Default Changelist" comment="" />
+    <list default="true" id="44ef9a51-d552-422d-b4a1-cec7bcc330d9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jpx-1.6.1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/jpx-1.6.1.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/jellebuitenhuis/gpxcompare/GPXCompare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/jellebuitenhuis/gpxcompare/GPXCompare.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/jellebuitenhuis/gpxcompare/GPXPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/jellebuitenhuis/gpxcompare/GPXPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/jellebuitenhuis/gpxcompare/RoutePainter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/jellebuitenhuis/gpxcompare/charts/TimeChart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/jellebuitenhuis/gpxcompare/charts/TimeChart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/jellebuitenhuis/gpxcompare/gpx-creator.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/jellebuitenhuis/gpxcompare/icons/speed-chart-disabled.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/jellebuitenhuis/gpxcompare/icons/speed-chart.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/jellebuitenhuis/gpxcompare/icons/tree-collapsed.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/jellebuitenhuis/gpxcompare/icons/tree-expanded.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/GPSCompare.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/nl/jellebuitenhuis/gpxcompare/GPXCompare$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/nl/jellebuitenhuis/gpxcompare/GPXCompare$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/nl/jellebuitenhuis/gpxcompare/GPXCompare$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/nl/jellebuitenhuis/gpxcompare/GPXCompare$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/nl/jellebuitenhuis/gpxcompare/GPXCompare$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/nl/jellebuitenhuis/gpxcompare/GPXCompare$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/nl/jellebuitenhuis/gpxcompare/GPXCompare.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/nl/jellebuitenhuis/gpxcompare/GPXCompare.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/nl/jellebuitenhuis/gpxcompare/GPXPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/nl/jellebuitenhuis/gpxcompare/GPXPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/nl/jellebuitenhuis/gpxcompare/RoutePainter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/nl/jellebuitenhuis/gpxcompare/charts/TimeChart$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/nl/jellebuitenhuis/gpxcompare/charts/TimeChart$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/nl/jellebuitenhuis/gpxcompare/charts/TimeChart$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/nl/jellebuitenhuis/gpxcompare/charts/TimeChart$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/nl/jellebuitenhuis/gpxcompare/charts/TimeChart$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/nl/jellebuitenhuis/gpxcompare/charts/TimeChart$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/nl/jellebuitenhuis/gpxcompare/charts/TimeChart$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/nl/jellebuitenhuis/gpxcompare/charts/TimeChart$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/nl/jellebuitenhuis/gpxcompare/charts/TimeChart.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/nl/jellebuitenhuis/gpxcompare/charts/TimeChart.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,44 +52,77 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="importAutomatically" value="true" />
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
       </MavenImportingSettings>
     </option>
   </component>
   <component name="ProjectId" id="1WQbefbnEbsEizL8v8adPiiYP6o" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/jfreechart-1.0.19" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/nl/jellebuitenhuis/gpxcompare" />
     <property name="nodejs.jest.jest_package" value="" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15234375" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="project.propCompiler" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Jelle\Projects\GPSCompare\src\main\java\nl\jellebuitenhuis\gpxcompare" />
+      <recent name="C:\Users\Jelle\Projects\GPSCompare\src\main\resources" />
+      <recent name="C:\Users\Jelle\Projects\GPSCompare\src\main\java\nl\jellebuitenhuis\gpxcompare\icons" />
+      <recent name="C:\Users\Jelle\Projects\GPSCompare\src\main\java\nl\jellebuitenhuis\gpxcompare\charts" />
+      <recent name="C:\Users\Jelle\Projects\GPSCompare" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Jelle\Projects\GPSCompare\src\main\java\nl\jellebuitenhuis\gpxcompare" />
       <recent name="C:\Users\Jelle\Projects\GPSCompare" />
       <recent name="C:\Users\Jelle\Projects\GPSCompare\src" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Jelle\Projects\GPSCompare\src\main\java\nl\jellebuitenhuis\gpxcompare\icons" />
-      <recent name="C:\Users\Jelle\Projects\GPSCompare\src\main\java\nl\jellebuitenhuis\gpxcompare\charts" />
-      <recent name="C:\Users\Jelle\Projects\GPSCompare\src\main\java\nl\jellebuitenhuis\gpxcompare" />
-      <recent name="C:\Users\Jelle\Projects\GPSCompare" />
-      <recent name="C:\Users\Jelle\Projects\GPSCompare\src\main\java\icons" />
-    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn install:install-file \    -Dfile=C:\Users\Jelle\Projects\GPSCompare\jpx-1.6.1.jar \    -DgroupId=io.jenetics.jpx \    -DartifactId=jpx \    -Dversion=1.6.1 \    -Dpackaging=jar \    -DgeneratePom=true        " />
+      <command value="mvn install:install-file     -Dfile=C:UsersJelleProjectsGPSComparejpx-1.6.1.jar     -DgroupId=io.jenetics.jpx     -DartifactId=jpx     -Dversion=1.6.1     -Dpackaging=jar     -DgeneratePom=true        " />
+      <command value="mvn compile" />
+      <command value="mvn jar" />
+      <command value="mvn mvn install:install-file     -Dfile=C:\Users\Jelle\Projects\GPSCompare\jpx-1.6.1.jar     -DgroupId=io.jenetics.jpx     -DartifactId=jpx     -Dversion=1.6.1     -Dpackaging=jar     -DgeneratePom=true        " />
+      <command value="mvn clean" />
+      <command value="mvn verify" />
+      <command value="mvn install:install-file     -Dfile=C:\Users\Jelle\Projects\GPSCompare\jpx-1.6.1.jar     -DgroupId=io.jenetics.jpx     -DartifactId=jpx     -Dversion=1.6.1     -Dpackaging=jar     -DgeneratePom=true        " />
+      <command value="mvn install:install-file     -Dfile=C:\Users\Jelle\Projects\GPSCompare\jpx-1.6.1.jar     -DgroupId=io.jenetics.jpx     -DartifactId=jpx     -Dversion=1.6.1     -Dpackaging=jar" />
+      <command value="mvn validate" />
+      <command value="mvn install" />
+      <command value="mvn mvn install:install-file     -Dfile=C:\Users\Jelle\Projects\GPSCompare\jpx-1.6.1.jar     -DgroupId=io.jenetics.jpx     -DartifactId=jpx     -Dversion=1.6.1     -Dpackaging=jar     -DgeneratePom=true" />
+      <command value="vn install:install-file     -Dfile=C:\Users\Jelle\Projects\GPSCompare\jpx-1.6.1.jar     -DgroupId=io.jenetics.jpx     -DartifactId=jpx     -Dversion=1.6.1     -Dpackaging=jar     -DgeneratePom=true" />
+      <command value="mvn install:install-file     -Dfile=C:\Users\Jelle\Projects\GPSCompare\jpx-1.6.1.jar     -DgroupId=io.jenetics.jpx     -DartifactId=jpx     -Dversion=1.6.1     -Dpackaging=jar     -DgeneratePom=true" />
+      <command value="mvn install:install-file     -Dfile=C:/Users/Jelle/Projects/GPSCompare/jpx-1.6.1.jar     -DgroupId=io.jenetics.jpx     -DartifactId=jpx     -Dversion=1.6.1     -Dpackaging=jar     -DgeneratePom=true" />
+      <command value="mvn install:install-file     -Dfile='C:\Users\Jelle\Projects\GPSCompare\jpx-1.6.1.jar'     -DgroupId=io.jenetics.jpx     -DartifactId=jpx     -Dversion=1.6.1     -Dpackaging=jar     -DgeneratePom=true" />
+      <command value="mvn install:install-file     -Dfile=jpx-1.6.1.jar     -DgroupId=io.jenetics.jpx     -DartifactId=jpx     -Dversion=1.6.1     -Dpackaging=jar     -DgeneratePom=true" />
+      <command value="mvn install:install-file     -Dfile=jasdpx-1.6.1.jar     -DgroupId=io.jenetics.jpx     -DartifactId=jpx     -Dversion=1.6.1     -Dpackaging=jar     -DgeneratePom=true" />
+      <command value="mvn install:install-file     -Dfile=lol.jar     -DgroupId=io.jenetics.jpx     -DartifactId=jpx     -Dversion=1.6.1     -Dpackaging=jar     -DgeneratePom=true" />
+      <command value="mvn package" />
+      <command value="mvn clean package" />
+    </option>
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -109,7 +172,15 @@
       <workItem from="1579084864020" duration="28000" />
       <workItem from="1579085022104" duration="7000" />
       <workItem from="1579085844134" duration="31335000" />
-      <workItem from="1579170654906" duration="30328000" />
+      <workItem from="1579170654906" duration="30619000" />
+      <workItem from="1579259097149" duration="8112000" />
+      <workItem from="1579267236229" duration="16637000" />
+      <workItem from="1579284506550" duration="131000" />
+      <workItem from="1579285709104" duration="64000" />
+      <workItem from="1579286825566" duration="56000" />
+      <workItem from="1579287108414" duration="41000" />
+      <workItem from="1579287172456" duration="48000" />
+      <workItem from="1579287244290" duration="2376000" />
     </task>
     <servers />
   </component>
@@ -117,62 +188,78 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="765" y="230" key="#com.intellij.ide.util.MemberChooser" timestamp="1579210832725">
+    <state x="765" y="230" key="#com.intellij.ide.util.MemberChooser" timestamp="1579276754756">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="230" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579210832725" />
+    <state x="765" y="230" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579276754756" />
+    <state x="711" y="372" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1579277047211">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="711" y="372" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579277047211" />
     <state x="662" y="446" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1579092099619">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="662" y="446" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579092099619" />
-    <state x="740" y="276" key="FileChooserDialogImpl" timestamp="1579206767527">
+    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1579263904608">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="276" key="FileChooserDialogImpl/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579206767527" />
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1579211313824">
+    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579263904608" />
+    <state x="740" y="276" key="FileChooserDialogImpl" timestamp="1579280498218">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579211313824" />
-    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1579211313824">
+    <state x="740" y="276" key="FileChooserDialogImpl/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579280498218" />
+    <state width="1877" height="413" key="GridCell.Tab.0.bottom" timestamp="1579289623584">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579211313824" />
-    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1579211313824">
+    <state width="1877" height="413" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579289623584" />
+    <state width="1877" height="413" key="GridCell.Tab.0.center" timestamp="1579289623584">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579211313824" />
-    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1579211313824">
+    <state width="1877" height="413" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579289623584" />
+    <state width="1877" height="413" key="GridCell.Tab.0.left" timestamp="1579289623584">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579211313824" />
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1579127648274">
+    <state width="1877" height="413" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579289623584" />
+    <state width="1877" height="413" key="GridCell.Tab.0.right" timestamp="1579289623584">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579127648274" />
-    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1579127648274">
+    <state width="1877" height="413" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579289623584" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1579284391193">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579127648274" />
-    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1579127648274">
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579284391193" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1579284391193">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579127648274" />
-    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1579127648274">
+    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579284391193" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1579284391193">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579127648274" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579284391193" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1579284391193">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579284391193" />
     <state x="490" y="176" key="Maven.ArtifactSearchDialog" timestamp="1579095220558">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="490" y="176" key="Maven.ArtifactSearchDialog/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579095220558" />
-    <state x="461" y="163" key="SettingsEditor" timestamp="1579176526048">
+    <state x="461" y="163" key="SettingsEditor" timestamp="1579287219210">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="163" key="SettingsEditor/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579176526048" />
+    <state x="461" y="163" key="SettingsEditor/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579287219210" />
+    <state x="769" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1579267349528">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="769" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579267349528" />
     <state x="690" y="287" key="extract.method.dialog" timestamp="1579121550830">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="287" key="extract.method.dialog/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579121550830" />
+    <state x="591" y="217" width="737" height="606" key="find.popup" timestamp="1579288544929">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="591" y="217" width="737" height="606" key="find.popup/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579288544929" />
     <state x="342" y="141" key="new project wizard" timestamp="1579111868661">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -185,10 +272,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="666" y="149" key="refactoring.ChangeSignatureDialog/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579127629169" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1579203645518">
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1579289337095">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579203645518" />
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040/-1920.94.1920.1040@0.0.1920.1040" timestamp="1579289337095" />
     <state x="623" y="225" width="672" height="160" key="search.everywhere.popup" timestamp="1579122332779">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

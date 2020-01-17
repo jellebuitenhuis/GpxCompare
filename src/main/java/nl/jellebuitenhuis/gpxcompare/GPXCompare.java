@@ -3,21 +3,17 @@ package nl.jellebuitenhuis.gpxcompare;
 import io.jenetics.jpx.*;
 import nl.jellebuitenhuis.gpxcompare.charts.TimeChart;
 import org.apache.commons.io.FilenameUtils;
-import org.jxmapviewer.JXMapViewer;
 import org.jxmapviewer.OSMTileFactoryInfo;
 import org.jxmapviewer.VirtualEarthTileFactoryInfo;
+import org.jxmapviewer.google.GoogleMapsTileFactoryInfo;
 import org.jxmapviewer.input.CenterMapListener;
 import org.jxmapviewer.input.PanKeyListener;
 import org.jxmapviewer.input.PanMouseInputListener;
 import org.jxmapviewer.input.ZoomMouseWheelListenerCursor;
-import org.jxmapviewer.painter.CompoundPainter;
-import org.jxmapviewer.painter.Painter;
 import org.jxmapviewer.viewer.DefaultTileFactory;
-import org.jxmapviewer.viewer.DefaultWaypoint;
 import org.jxmapviewer.viewer.GeoPosition;
+import org.jxmapviewer.viewer.TileFactory;
 import org.jxmapviewer.viewer.TileFactoryInfo;
-import org.jxmapviewer.viewer.Waypoint;
-import org.jxmapviewer.viewer.WaypointPainter;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -28,20 +24,20 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.InputStream;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.time.Instant;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import java.awt.event.*;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.List;
 
 public class GPXCompare {
 
@@ -56,6 +52,9 @@ public class GPXCompare {
     private JButton btnFileOpen;
     private JFileChooser chooserFileOpen;
     private JButton btnFileSave;
+    private JButton btnEqualization;
+    private JButton btnGapPenalty;
+    private JButton btnEqualizationBool;
     private JFileChooser chooserFileSave;
     private File fileSave;
     private JButton btnObjectDelete;
@@ -109,10 +108,17 @@ public class GPXCompare {
     private File fileOpened;
     private DefaultListModel<GPX> gpxFiles;
     private JList jList;
-    private RoutePainter routePainter;
+    TimeChart timeChart;
     private Map<WayPoint, WayPoint> wayPointMap = new TreeMap<>();
     List<WayPoint> a1 = new ArrayList<>();
     List<WayPoint> a2 = new ArrayList<>();
+    private int gapPenalty = 10;
+    private double equalizeDistance = 5;
+
+    private boolean doEqualize = true;
+
+    private String[] tfLabels;
+    private List<TileFactory> factories;
 
     public GPXCompare()
     {
@@ -167,7 +173,7 @@ public class GPXCompare {
         glassPaneStatus.setBackground(transparentYellow);
         glassPaneStatus.setForeground(Color.BLACK);
         glassPane.add(glassPaneStatus, BorderLayout.SOUTH);
-        ImageIcon icon = new ImageIcon("src/main/java/nl/jellebuitenhuis/gpxcompare/icons/gpx-creator.png");
+        ImageIcon icon = new ImageIcon(getClass().getResource("/gpx-creator.png"));
         frame.setIconImage(icon.getImage());
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int screenWidth = (int) screenSize.getWidth();
@@ -193,8 +199,32 @@ public class GPXCompare {
          */
 
         mapPanel = new GPXPanel();
-        TileFactoryInfo info = new VirtualEarthTileFactoryInfo(VirtualEarthTileFactoryInfo.MAP);
+        TileFactoryInfo info = new VirtualEarthTileFactoryInfo(VirtualEarthTileFactoryInfo.HYBRID);
         DefaultTileFactory tileFactory = new DefaultTileFactory(info);
+        factories = new ArrayList<>();
+
+        TileFactoryInfo osmInfo = new OSMTileFactoryInfo();
+        VirtualEarthTileFactoryInfo veInfo1 = new VirtualEarthTileFactoryInfo(VirtualEarthTileFactoryInfo.HYBRID);
+        VirtualEarthTileFactoryInfo veInfo2 = new VirtualEarthTileFactoryInfo(VirtualEarthTileFactoryInfo.MAP);
+        VirtualEarthTileFactoryInfo veInfo3 = new VirtualEarthTileFactoryInfo(VirtualEarthTileFactoryInfo.SATELLITE);
+
+        factories.add(new DefaultTileFactory(veInfo1));
+        factories.add(new DefaultTileFactory(veInfo2));
+        factories.add(new DefaultTileFactory(veInfo3));
+        factories.add(new DefaultTileFactory(osmInfo));
+        tfLabels = new String[factories.size()];
+        for (int i = 0; i < factories.size(); i++)
+        {
+            if(factories.get(i).getInfo() instanceof VirtualEarthTileFactoryInfo)
+            {
+                VirtualEarthTileFactoryInfo veInfo = (VirtualEarthTileFactoryInfo) factories.get(i).getInfo();
+                tfLabels[i] = veInfo.getName() + " " + veInfo.getModeName();
+            }
+            else
+            {
+                tfLabels[i] = factories.get(i).getInfo().getName() + i;
+            }
+        }
         mapPanel.setTileFactory(tileFactory);
         tileFactory.setThreadPoolSize(8);
         GeoPosition marije = new GeoPosition(52.247324, 6.849832);
@@ -282,9 +312,18 @@ public class GPXCompare {
         jList = new JList(gpxFiles);
         MouseListener mouseListener = new MouseAdapter() {
             @Override
+            public void mousePressed(MouseEvent e) {
+                super.mousePressed(e);
+                if(SwingUtilities.isRightMouseButton(e)) {
+                    int row = jList.locationToIndex(e.getPoint());
+                    jList.setSelectedIndex(row);
+                }
+            }
+
+            @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                if(e.getButton() == 3)
+                if(SwingUtilities.isRightMouseButton(e))
                 {
                     int row = jList.locationToIndex(e.getPoint());
                     jList.setSelectedIndex(row);
@@ -296,19 +335,13 @@ public class GPXCompare {
                         mapPanel.removeGPXFile(removeGPX);
                         if(gpxFiles.size() < 2)
                         {
-                            mapPanel.setCompareLists(null,null);
-                            btnTimeChart.setEnabled(false);
-                            btnTimeChart.validate();
-                            btnTimeChart.repaint();
-                            btnFileOpen.setEnabled(true);
-                            btnFileOpen.validate();
-                            btnFileOpen.repaint();
+                            resetMap();
                         }
                     });
                     popup.add(menuItem);
                     popup.show(e.getComponent(), e.getX(), e.getY());
                 }
-                else if(e.getButton() == 1 && e.getClickCount() == 2)
+                else if(SwingUtilities.isLeftMouseButton(e) && e.getClickCount() == 2)
                 {
                     GPX selectedGPX = (GPX) jList.getSelectedValue();
                     WayPoint w = selectedGPX.getTracks().get(0).getSegments().get(0).getPoints().get(0);
@@ -316,6 +349,8 @@ public class GPXCompare {
                 }
             }
         };
+        FileRenderer fr = new FileRenderer();
+        jList.setCellRenderer(fr);
         jList.addMouseListener(mouseListener);
         gpxFilePanel.add(jList);
 
@@ -392,7 +427,7 @@ public class GPXCompare {
         frame.getContentPane().add(toolBarMain, BorderLayout.NORTH);
 
         /*
-        Open File button
+        Open File Button
         */
         int chooserWidth = (frame.getWidth() * 8) / 10;
         int chooserHeight = (frame.getHeight() * 8) / 10;
@@ -405,7 +440,7 @@ public class GPXCompare {
             @Override
             protected JDialog createDialog(Component parent) throws HeadlessException {
                 JDialog dialog = super.createDialog(parent);
-                dialog.setIconImage(new ImageIcon("src/main/java/nl/jellebuitenhuis/gpxcompare/icons/file-open.png").getImage());
+                dialog.setIconImage(new ImageIcon(getClass().getResource("/file-open.png")).getImage());
                 return dialog;
             }
         };
@@ -420,40 +455,195 @@ public class GPXCompare {
                 openFile();
             }
         });
-        btnFileOpen.setToolTipText("<html>Open GPX file<br>[CTRL+O]</html>");
+        btnFileOpen.setToolTipText("<html>Open GPX file</html>");
         btnFileOpen.setFocusable(false);
-        ImageIcon imageIcon = new ImageIcon("src/main/java/nl/jellebuitenhuis/gpxcompare/icons/file-open.png");
+        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/file-open.png"));
         btnFileOpen.setIcon(imageIcon);
         btnFileOpen.setDisabledIcon(
-                new ImageIcon("src/main/java/nl/jellebuitenhuis/gpxcompare/icons/file-open-disabled.png"));
+                new ImageIcon(getClass().getResource("/file-open-disabled.png")));
         toolBarMain.add(btnFileOpen);
 
-        /* Time CHART BUTTON
+        /* Time Chart Button
          * --------------------------------------------------------------------------------------------------------- */
         btnTimeChart = new JButton("");
         btnTimeChart.setToolTipText("View time difference");
-        btnTimeChart.setIcon(new ImageIcon("src/main/java/nl/jellebuitenhuis/gpxcompare/icons/elevation-chart.png"));
+        btnTimeChart.setIcon(new ImageIcon(getClass().getResource("/elevation-chart.png")));
         btnTimeChart.setEnabled(false);
-        btnTimeChart.setDisabledIcon(new ImageIcon("src/main/java/nl/jellebuitenhuis/gpxcompare/icons/elevation-chart-disabled.png"));
+        btnTimeChart.setDisabledIcon(new ImageIcon(getClass().getResource("/elevation-chart-disabled.png")));
         btnTimeChart.setFocusable(false);
         btnTimeChart.addActionListener(e -> buildChart("/com/gpxcreator/icons/elevation-chart.png"));
         toolBarMain.add(btnTimeChart);
+
+        JComboBox combo = new JComboBox(tfLabels);
+        combo.addItemListener(new ItemListener()
+        {
+            @Override
+            public void itemStateChanged(ItemEvent e)
+            {
+                TileFactory factory = factories.get(combo.getSelectedIndex());
+                TileFactoryInfo info = factory.getInfo();
+                mapPanel.setTileFactory(factory);
+            }
+        });
+        toolBarMain.add(Box.createGlue());
+        toolBarMain.add(combo);
+
+        /* Equalization settings Button
+         * --------------------------------------------------------------------------------------------------------- */
+        btnEqualization = new JButton("Equalization");
+        btnEqualization.setToolTipText("Change Equalization Setting");
+        btnEqualization.setIcon(new ImageIcon(getClass().getResource("/equalization.png")));
+        btnEqualization.setFocusable(false);
+        btnEqualization.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                changeEqualization();
+            }
+        });
+        toolBarMain.add(Box.createGlue());
+        toolBarMain.add(btnEqualization);
+
+        /* GapPenalty settings Button
+         * --------------------------------------------------------------------------------------------------------- */
+        btnGapPenalty = new JButton("Gap Penalty");
+        btnGapPenalty.setToolTipText("Change Gap Penalty Setting");
+        btnGapPenalty.setIcon(new ImageIcon(getClass().getResource("/settings.png")));
+        btnGapPenalty.setFocusable(false);
+        btnGapPenalty.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                changeGapPenalty();
+            }
+        });
+        toolBarMain.add(btnGapPenalty);
+
+        /* Equalization On/Off settings Button
+         * --------------------------------------------------------------------------------------------------------- */
+        btnEqualizationBool = new JButton("Equalization On/Off");
+        btnEqualizationBool.setToolTipText("Equalization On/Off");
+        btnEqualizationBool.setIcon(new ImageIcon(getClass().getResource("/equalization-bool.png")));
+        btnEqualizationBool.setFocusable(false);
+        btnEqualizationBool.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                changeEqualizationBool();
+            }
+        });
+        toolBarMain.add(btnEqualizationBool);
     }
 
+    private void changeEqualizationBool()
+    {
+        int equalize = JOptionPane.showConfirmDialog(null,"<html>By default all points on the tracks are equalized over the whole track." +
+                "This means that every n meters there will be a point for both tracks, This makes matching a lot cleaner.<br> If you want to " +
+                "turn this off, select 'No'.</html>","Do equalize?",JOptionPane.YES_NO_OPTION);
+        if(equalize == JOptionPane.YES_OPTION)
+        {
+            doEqualize = true;
+            btnEqualizationBool.setIcon(new ImageIcon(getClass().getResource("/equalization-bool.png")));
+        }
+        else if(equalize == JOptionPane.NO_OPTION)
+        {
+            doEqualize = false;
+            btnEqualizationBool.setIcon(new ImageIcon(getClass().getResource("/equalization-bool-disabled.png")));
+        }
+        rebuildFiles();
+    }
+
+    private void changeGapPenalty()
+    {
+        String eqDist = JOptionPane.showInputDialog(null,"<html>Here you can change the gap penalty used in the Needleman-Wunsch algorithm. " +
+                "By default this is set to 10. A higher number means that points further apart will be considered aligned, that is, they are at the same place.<br>" +
+                "If you have issues with your alignment, try changing this number. A good value is in the same ballpark as the accuracy of your GPS" +
+                ", usually a bit higher.</html>","Change gap penalty",JOptionPane.INFORMATION_MESSAGE);
+        try {
+            gapPenalty = Integer.parseInt(eqDist);
+            if(gapPenalty <= 0)
+            {
+                gapPenalty = 10;
+                JOptionPane.showMessageDialog(frame,
+                        "<html>Numbers of 0 or lower don't work, please try again.</html>",
+                        "Warning",
+                        JOptionPane.WARNING_MESSAGE);
+            }
+        }
+        catch (NullPointerException ignored)
+        {
+
+        }
+        catch (NumberFormatException e)
+        {
+            JOptionPane.showMessageDialog(frame,
+                    "<html>Not a number, please try again.</html>",
+                    "Warning",
+                    JOptionPane.WARNING_MESSAGE);
+        }
+        rebuildFiles();
+    }
+
+    private void changeEqualization()
+    {
+        String eqDist = JOptionPane.showInputDialog(null,"<html>By default all trackpoints are equalized. This means " +
+                "that every n meters a point will be placed. This helps make the alignment of the two tracks less noisy." +
+                "<br>A higher number means that fewer points will be placed on the map, your track will be less accurate. " +
+                "A lower number means more points, but also more computation time. <br><i>This settings has no effect if you've turned equalization off!</i></html>","Change equalization distance",JOptionPane.INFORMATION_MESSAGE);
+        try {
+            equalizeDistance = Double.parseDouble(eqDist);
+            if(equalizeDistance <= 0)
+            {
+                equalizeDistance = 10;
+                JOptionPane.showMessageDialog(frame,
+                        "<html>Numbers of 0 or lower don't work, please try again.</html>",
+                        "Warning",
+                        JOptionPane.WARNING_MESSAGE);
+            }
+        }
+        catch (NullPointerException ignored)
+        {
+
+        }
+        catch (NumberFormatException e)
+        {
+            JOptionPane.showMessageDialog(frame,
+                    "<html>Not a number, please try again.</html>",
+                    "Warning",
+                    JOptionPane.WARNING_MESSAGE);
+        }
+        rebuildFiles();
+    }
+
+    private void rebuildFiles()
+    {
+        gpxFiles.clear();
+        resetMap();
+    }
+
+    private void resetMap()
+    {
+        mapPanel.setCompareLists(null,null);
+        btnTimeChart.setEnabled(false);
+        btnTimeChart.validate();
+        btnTimeChart.repaint();
+        btnFileOpen.setEnabled(true);
+        btnFileOpen.validate();
+        btnFileOpen.repaint();
+        mapPanel.person1WayPoint = null;
+        mapPanel.person2WayPoint = null;
+        if(timeChart != null) timeChart.setVisible(false);
+    }
 
     /**
      * Builds the selected chart type and displays the new window frame.
      */
     public void buildChart(String iconPath) {
-            JFrame f = null;
-                f = new TimeChart(a1, a2);
+            timeChart = new TimeChart(a1, a2, mapPanel);
             InputStream in = GPXCompare.class.getResourceAsStream(iconPath);
             if (in != null) {
-                f.setIconImage(new ImageIcon(iconPath).getImage());
+                timeChart.setIconImage(new ImageIcon(iconPath).getImage());
             }
-            f.setSize(frame.getWidth() - 150, frame.getHeight() - 100);
-            f.setLocationRelativeTo(frame);
-            f.setVisible(true);
+            timeChart.setSize(frame.getWidth() - 150, frame.getHeight() - 100);
+            timeChart.setLocationRelativeTo(frame);
+            timeChart.setVisible(true);
     }
 
     private void openFile()
@@ -462,12 +652,7 @@ public class GPXCompare {
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             fileOpened = chooserFileOpen.getSelectedFile();
             if(FilenameUtils.getExtension(fileOpened.getAbsolutePath()).equals("gpx")) {
-                try {
-                    GPX gpx = GPX.read(fileOpened.getAbsolutePath());
-                    parseFile(gpx);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                parseFile(fileOpened);
             }
             else
             {
@@ -484,9 +669,19 @@ public class GPXCompare {
         }
     }
 
-    private void parseFile(GPX gpx)
+    private void parseFile(File fileOpened)
     {
-//        gpx = equalizeWaypoints(gpx);
+        GPX gpx = null;
+        try {
+            gpx = GPX.read(fileOpened.getAbsolutePath());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        if(doEqualize)
+        {
+            gpx = equalizeWaypoints(gpx);
+        }
+        gpx.setName(fileOpened.getName());
         mapPanel.addGPXFile(gpx);
         gpxFiles.addElement(gpx);
         List<Track> tracks = gpx.getTracks();
@@ -511,7 +706,7 @@ public class GPXCompare {
         GPX gpx2 = gpxFiles.get(1);
         List<WayPoint> waypoints1 = gpx1.getTracks().get(0).getSegments().get(0).getPoints();
         List<WayPoint> waypoints2 = gpx2.getTracks().get(0).getSegments().get(0).getPoints();
-        alignTracks(waypoints1, waypoints2,-5);
+        alignTracks(waypoints1, waypoints2,-gapPenalty);
     }
 
     private void alignTracks(List<WayPoint> wayPoints1, List<WayPoint> wayPoints2, int gap_penalty)
@@ -604,8 +799,8 @@ public class GPXCompare {
         int i = 0;
         WayPoint p1;
         WayPoint p2;
-        double distance = 10;
 
+        int j = 1;
         while (i < wayPoints.size()) {
             if (i == 0) {
                 disPoints.add(wayPoints.get(i));
@@ -622,27 +817,27 @@ public class GPXCompare {
             double x = p1.getLatitude().toDegrees() - p2.getLatitude().toDegrees();
             double y = (p1.getLongitude().toDegrees() - p2.getLongitude().toDegrees()) * coef;
             d += Math.sqrt(x*x+y*y)*(2*Math.PI*6378.137 * 1000)/360;
-            if (d >= distance) {
+
+            if (d >= equalizeDistance) {
                 double bearing = calculateBearing(p1, p2);
-                double moves = Math.floor(d/distance);
+                double moves = d/equalizeDistance;
                 Optional<ZonedDateTime> p1Optional = p1.getTime();
                 Optional<ZonedDateTime> p2Optional = p2.getTime();
                 long p1Time = p1Optional.get().toEpochSecond();
                 long p2Time = p2Optional.get().toEpochSecond();
                 long timeDiff = p2Time - p1Time;
-                double timeStep = timeDiff/moves;
-                for(int j = 0; j < moves; j++)
-                {
-                    WayPoint p2_copy = p2.toBuilder().build();
-                    p2_copy = moveWaypoint(d,bearing,p2_copy);
-                    long newTime = (long) (p1Time + (timeStep * j));
-                    ZonedDateTime newZonedDateTime = ZonedDateTime.ofInstant(Instant.ofEpochSecond(newTime), p1Optional.get().getZone());
-                    p2_copy = p2_copy.toBuilder().time(newZonedDateTime).build();
-                    disPoints.add(p2_copy);
-                }
+                double timeStep = (timeDiff/moves);
+                WayPoint p2_copy = p2.toBuilder().build();
+                p2_copy = moveWaypoint(-(d-equalizeDistance),bearing,p2_copy);
+                long newTime = (long) (p1Time + (timeStep * j));
+                ZonedDateTime newZonedDateTime = ZonedDateTime.ofInstant(Instant.ofEpochSecond(newTime), p1Optional.get().getZone());
+                p2_copy = p2_copy.toBuilder().time(newZonedDateTime).build();
+                disPoints.add(p2_copy);
                 d = 0;
+                j++;
             } else {
                 i++;
+                j = 1;
             }
         }
 
@@ -661,10 +856,10 @@ public class GPXCompare {
 
     public WayPoint moveWaypoint(double distance, double angle, WayPoint wayPoint)
     {
-
+        double earthDegree = (2*Math.PI*6378.137*1000) / 360;
         double coef = Math.cos(wayPoint.getLatitude().toRadians());
-        double verticalDistDiff = Math.sin(Math.toRadians(90 - angle)) / (2*Math.PI*6378.137 * 1000) / 360;
-        double horizontalDistDiff = Math.cos(Math.toRadians(90 - angle)) / (2*Math.PI*6378.137 * 1000) / 360;
+        double verticalDistDiff = Math.sin(Math.toRadians(90 - angle)) / earthDegree;
+        double horizontalDistDiff = Math.cos(Math.toRadians(90 - angle)) / earthDegree;
         double latDiff = distance * verticalDistDiff;
         double lonDiff = distance * horizontalDistDiff / coef;
         WayPoint newWaypoint = wayPoint.toBuilder().lat(wayPoint.getLatitude().toDegrees()+latDiff).lon(wayPoint.getLongitude().toDegrees()+lonDiff).build();
@@ -679,6 +874,18 @@ public class GPXCompare {
         double y = Math.sin(dlon) * Math.cos(lat2R);
         double x = Math.cos(lat1R) * Math.sin(lat2R) - Math.sin(lat1R) * Math.cos(lat2R) * Math.cos(dlon);
         return Math.toDegrees(Math.atan2(y,x));
+    }
+
+    public void setGapPenalty(int gapPenalty) {
+        this.gapPenalty = gapPenalty;
+    }
+
+    public void setEqualizeDistance(double equalizeDistance) {
+        this.equalizeDistance = equalizeDistance;
+    }
+
+    public void setDoEqualize(boolean doEqualize) {
+        this.doEqualize = doEqualize;
     }
 }
 

@@ -1,17 +1,15 @@
 package nl.jellebuitenhuis.gpxcompare.charts;
 
 import io.jenetics.jpx.WayPoint;
+import nl.jellebuitenhuis.gpxcompare.GPXPanel;
 import org.jfree.chart.*;
 import org.jfree.chart.axis.ValueAxis;
 import org.jfree.chart.labels.CrosshairLabelGenerator;
-import org.jfree.chart.labels.StandardXYSeriesLabelGenerator;
 import org.jfree.chart.labels.StandardXYToolTipGenerator;
-import org.jfree.chart.labels.XYToolTipGenerator;
 import org.jfree.chart.panel.CrosshairOverlay;
 import org.jfree.chart.plot.Crosshair;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.plot.XYPlot;
-import org.jfree.chart.renderer.xy.XYShapeRenderer;
 import org.jfree.data.xy.XYDataset;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
@@ -19,7 +17,6 @@ import org.jfree.chart.ui.RectangleEdge;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 import java.lang.reflect.Field;
 import java.util.*;
@@ -32,9 +29,13 @@ public class TimeChart extends JFrame {
   private double distance;
   private Crosshair xCrosshair;
   private Crosshair yCrosshair;
+  private GPXPanel mapPanel;
+  private Map<Double,WayPoint> distanceWayPointMap;
 
-  public TimeChart(List<WayPoint> a1, List<WayPoint> a2) {
+  public TimeChart(List<WayPoint> a1, List<WayPoint> a2, GPXPanel mapPanel) {
       super("Time Chart");
+      this.mapPanel = mapPanel;
+      this.distanceWayPointMap = new TreeMap<>();
       Map<Double, Double> timeDistanceMap = new TreeMap<>();
       distance = 0;
       for(int i = 0; i < a1.size(); i++)
@@ -49,7 +50,11 @@ public class TimeChart extends JFrame {
             {
               try
               {
-                  if(a1.get(i-j) != null && a2.get(i-j) != null) distance += a1.get(i).distance(a1.get(i - j)).doubleValue();
+                  if(a1.get(i-j) != null && a2.get(i-j) != null)
+                  {
+                      distance += a1.get(i).distance(a1.get(i - j)).doubleValue();
+                      distanceWayPointMap.put(Math.floor(distance), a1.get(i));
+                  }
                   j++;
               }
               catch (ArrayIndexOutOfBoundsException e)
@@ -80,12 +85,16 @@ public class TimeChart extends JFrame {
               JFreeChart chart = chartMouseEvent.getChart();
               XYPlot xyPlot = (XYPlot)chart.getPlot();
               ValueAxis xAxis = xyPlot.getDomainAxis();
-              double xValue = xAxis.java2DToValue((double)chartMouseEvent.getTrigger().getX(), r2d, RectangleEdge.BOTTOM);
+              double xValue = xAxis.java2DToValue(chartMouseEvent.getTrigger().getX(), r2d, RectangleEdge.BOTTOM);
               if (!xAxis.getRange().contains(xValue)) {
                   xValue = 0.0D / 0.0;
               }
 
               double yValue = findYValue(xyPlot.getDataset(), 0, xValue);
+              if(distanceWayPointMap.containsKey(Math.floor(xValue)))
+              {
+                  mapPanel.setPerson1WayPoint(distanceWayPointMap.get(Math.floor(xValue)));
+              }
               xCrosshair.setValue(xValue);
               yCrosshair.setValue(yValue);
           }
