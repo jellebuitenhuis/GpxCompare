@@ -21,3 +21,6 @@ Not much to install, there is a zip with a jar file. If you want to run this app
 * Show the graph and the map in one screen
 * Automatically set different colors for different
 * Actually show some properties in the properties window
+
+## License
+This piece of software is licensed under the [GNU General Public License V3](LICENSE).
